@@ -17,16 +17,25 @@
         .col-md-6 {
             margin: 0 auto;
         }
-        form {
-            /* background-color: #0059a9; /* CFC Blue */
-            color:white; */
-            border: none;
+        .form {
+            color:black;
+            border: 0;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
             display:inline-block;
             font-size: 30px;
-            text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+            border-radius: 10px;
+            background-color: #0059a9;
+            background-image: linear-gradient(to top left,
+                                            rgba(0, 0, 0, .2),
+                                            rgba(0, 0, 0, .2) 30%,
+                                            rgba(0, 0, 0, 0));
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+        .form:hover {
+            background-color: #0059FF;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -63,9 +72,9 @@
 
         <div class="col-md-6">
             <form method="post">
-                <input name="formSelection" type="radio" onclick="go('https://airtable.com/embed/shrqOocFEEgUAf5kq?backgroundColor=orange')"/> Sign In
+                <input class='form' name="formSelection" type="button" value="Sign In" onclick="go('https://airtable.com/embed/shrqOocFEEgUAf5kq?backgroundColor=orange')"/>
                 &nbsp;&nbsp;&nbsp;
-                <input name="formSelection" type="radio" onclick="go('https://airtable.com/embed/shreqqS79E9sXJ26X?backgroundColor=orange')"/> Sign Out
+                <input class='form' name="formSelection" type="button" value="Sign Out" onclick="go('https://airtable.com/embed/shreqqS79E9sXJ26X?backgroundColor=orange')"/>
 
             </form>
             <iframe id="form" class="airtable-embed" src= "about:blank"
