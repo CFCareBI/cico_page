@@ -10,30 +10,38 @@
             background-size: 100% 100%;
             background-position: center;
         }
+
         .row {
             text-align: center;
             vertical-align: middle;
         }
+
         .col-sm-6 {
             margin: 0 auto;
+            color: white
+        }
+        .col-sm-3 {
+            margin: 0 auto;
+            color: white
         }
         .form {
-            color:black;
+            color: black;
             border: 0;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
-            display:inline-block;
+            display: inline-block;
             font-size: 30px;
             border-radius: 10px;
             background-color: #0059a9;
             background-image: linear-gradient(to top left,
-                                            rgba(0, 0, 0, .2),
-                                            rgba(0, 0, 0, .2) 30%,
-                                            rgba(0, 0, 0, 0));
+                    rgba(0, 0, 0, .2),
+                    rgba(0, 0, 0, .2) 30%,
+                    rgba(0, 0, 0, 0));
             box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
         }
+
         .form:hover {
             background-color: #0059FF;
         }
@@ -55,9 +63,9 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 
     <script type="text/javascript">
-    function go(loc) {
-        document.getElementById('form').src=loc;
-    }
+        function go(loc) {
+            document.getElementById('form').src = loc;
+        }
     </script>
 
     <title>Christian Family Care Visitor's Page</title>
@@ -65,26 +73,48 @@
 
 <body>
     <br>
-    <br>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+
+        <div id="welcome" class="col-sm-6">
+            <h1>Welcome to Christian Family Care!</h1><br>
+        </div>
+
+        <div class="col-sm-3">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+
+        <div class="col-sm-3">
+            <h3>Which one of our sites are you visiting?</h3>
+            
+        </div>
+
+        <div class="col-sm-3">
+            <a class="btn btn-primary btn-lg  btn-block" href="pages/office.html" role="button">Office</a><br><br>
+            <a class="btn btn-primary btn-lg  btn-block" href="pages/thrift.html">Thrift Store</a>
+        </div>
+
+        <div class="col-sm-3">
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-3">
         </div>
 
         <div class="col-sm-6">
-            <form method="post">
-                <input class='form' name="formSelection" type="button" value="Sign In" onclick="go('https://airtable.com/embed/shrqOocFEEgUAf5kq?backgroundColor=orange')"/>
-                &nbsp;&nbsp;&nbsp;
-                <input class='form' name="formSelection" type="button" value="Sign Out" onclick="go('https://airtable.com/embed/shreqqS79E9sXJ26X?backgroundColor=orange')"/>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ReXxZcI3qZQ??rel=0&modestbranding=1"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
 
-            </form>
-            <iframe id="form" class="airtable-embed" src= "https://airtable.com/embed/shrqOocFEEgUAf5kq?backgroundColor=orange"
-                frameborder="0" onmousewheel="" width="100%" height="600"
-                style="background: transparent; border: 1px solid #ccc;">
-            </iframe>
-      </div> 
-
-      <div class="col-sm-3">
-      </div>
+        <div class="col-sm-3">
+        </div>
     </div>
 
 </body>
