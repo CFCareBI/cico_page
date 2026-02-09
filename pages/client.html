@@ -1,155 +1,111 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <style type="text/css">
-        body {
-            background-image: url('');
-            background-attachment: fixed;
-            background-position: center;
-            overflow-x: hidden;
-        }
-        .highlighted {
-            background-color: rgba(0, 0, 0, 0.5);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Sign In</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    img {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        background-color: #0059a9;
+        transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+        background-color: #0059ff;
+    }
+
+    .btn-secondary {
+        background-color: #666;
+    }
+
+    iframe {
+        width: 100%;
+        height: 700px;
+        border: 1px solid #ccc;
+        margin-top: 20px;
+        background: white;
+    }
+</style>
+
+<script>
+    function go(loc) {
+        document.getElementById('form').src = loc;
+    }
+
+    (function() {
+        const idleDurationSecs = 60;
+        const redirectUrl = '../index.html';
+        let idleTimeout;
+
+        function resetIdleTimeout() {
+            if (idleTimeout) clearTimeout(idleTimeout);
+            idleTimeout = setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, idleDurationSecs * 1000);
         }
 
-        .row {
-            text-align: center;
-            vertical-align: middle;
-        }
-        .form {
-            color: black;
-            border: 0;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 30px;
-            border-radius: 10px;
-            background-color: #0059a9;
-            background-image: linear-gradient(to top left,
-                    rgba(0, 0, 0, .2),
-                    rgba(0, 0, 0, .2) 30%,
-                    rgba(0, 0, 0, 0));
-            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
-        }
-        .form:hover {
-            background-color: #0059FF;
-        }
-        .button {
-            background-color: orange;
-        }
-        .center {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-        }
-        .center1 {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        ['click', 'touchstart', 'mousemove', 'keydown'].forEach(evt =>
+            document.addEventListener(evt, resetIdleTimeout, false)
+        );
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
-        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-        crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-
-    <script type="text/javascript">
-        function go(loc) {
-            document.getElementById('form').src = loc;
-        }
-    </script>
-    
-     <!-- Home screen after inactivty time -->
-     <script>
-        (function() {
-        
-            const idleDurationSecs = 60;    // X number of seconds
-            const redirectUrl = '../index.html';  // Redirect idle users to this URL
-            let idleTimeout; // variable to hold the timeout, do not modify
-        
-            const resetIdleTimeout = function() {
-        
-                // Clears the existing timeout
-                if(idleTimeout) clearTimeout(idleTimeout);
-        
-                // Set a new idle timeout to load the redirectUrl after idleDurationSecs
-                idleTimeout = setTimeout(() => location.href = redirectUrl, idleDurationSecs * 1000);
-            };
-        
-            // Init on page load
-            resetIdleTimeout();
-        
-            // Reset the idle timeout on any of the events listed below
-            ['click', 'touchstart', 'mousemove'].forEach(evt => 
-                document.addEventListener(evt, resetIdleTimeout, false)
-            );
-        
-        })();
-        </script>
-    <title>Client Sign In</title>
+        resetIdleTimeout();
+    })();
+</script>
 </head>
 
 <body>
-    <br>
-    <div class="row">
-        <div class="col-sm-2">
-        </div>
 
-        <div id="welcome" class="col-sm-8">
-            <img src="../resources/banner.jpg" alt="Christian Family Care" class="center" >
-        </div>
+<div class="container">
 
-        <div class="col-sm-2">
-        </div>
+    <img src="../resources/banner.jpg" alt="Christian Family Care">
+
+    <div>
+        <button class="btn btn-secondary" onclick="window.location.href='../index.html'">
+            Back
+        </button>
     </div>
-    <div class="row">
-        <div class="col-sm-3">
-        </div>
 
-        <div id="start" class="col-sm-6">
-            <h2><a class="btn btn-primary btn-lg  btn-block" href="../index.html">Back</a></h2><br>
-        </div>
+    <div>
+        <button class="btn" onclick="go('https://airtable.com/embed/shrpFy9aQnxgPbl5j?backgroundColor=cyan')">
+            Sign In
+        </button>
 
-        <div class="col-sm-3">
-        </div>
+        <button class="btn" onclick="go('https://airtable.com/embed/shrz2TRw2ZOaIkgkS?backgroundColor=cyan')">
+            Sign Out
+        </button>
     </div>
-    <div class="row">
-        <div class="col-sm-2">
-        </div>
 
-        <div class="col-sm-8">
-            <form method="post">
-                <input class='btn btn-primary btn-lg' name="formSelection" type="button" value="Sign In" onclick="go('https://airtable.com/embed/shrpFy9aQnxgPbl5j?backgroundColor=cyan')"/>
-                &nbsp;&nbsp;&nbsp;
-                <input class='btn btn-primary btn-lg' name="formSelection" type="button" value="Sign Out" onclick="go('https://airtable.com/embed/shrz2TRw2ZOaIkgkS?backgroundColor=cyan')"/>
+    <iframe id="form" src="about:blank"></iframe>
 
-            </form><br>
-            <iframe id="form" class="airtable-embed" src= "about:blank"
-                frameborder="0" onmousewheel="" width="100%" height="700"
-                style="background: transparent; border: 1px solid #ccc;">
-            </iframe>
-      </div> 
-
-      <div class="col-sm-2">
-      </div>
-    </div>
+</div>
 
 </body>
-
 </html>
