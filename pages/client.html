@@ -60,6 +60,7 @@
         document.getElementById('form').src = loc;
     }
 
+    // Auto redirect after inactivity
     (function() {
         const idleDurationSecs = 60;
         const redirectUrl = '../index.html';
@@ -92,6 +93,11 @@
             Back
         </button>
     </div>
+
+    <!-- New blurb above Sign In -->
+    <p style="font-size: 22px; margin-top: 30px;">
+        Click the <strong>Sign In</strong> button to get started.
+    </p>
 
     <div>
         <button class="btn" onclick="go('https://airtable.com/embed/shrpFy9aQnxgPbl5j?backgroundColor=cyan')">
